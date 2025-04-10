@@ -1,13 +1,15 @@
-import { getProductsByCategory } from "@/lib/products"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { ArrowLeft } from "lucide-react"
-import Link from "next/link"
+'use client';
+
+import { getProductsByCategory } from "@/lib/products";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function LaptopsPage() {
-  const laptopProducts = getProductsByCategory("laptops") || []
+  const laptopProducts = getProductsByCategory("laptops") || [];
 
   return (
     <div className="container mx-auto py-8">
@@ -33,8 +35,8 @@ export default function LaptopsPage() {
                   className="object-cover"
                   onError={(e) => {
                     // If image fails to load, replace with placeholder
-                    ;(e.target as HTMLImageElement).src = "/placeholder.svg"
-                    console.error(`Failed to load image: ${product.image}`)
+                    (e.target as HTMLImageElement).src = "/placeholder.svg";
+                    console.error(`Failed to load image: ${product.image}`);
                   }}
                 />
               </div>
@@ -68,6 +70,5 @@ export default function LaptopsPage() {
         )}
       </div>
     </div>
-  )
+  );
 }
-
